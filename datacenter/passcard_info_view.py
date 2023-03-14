@@ -13,7 +13,7 @@ def passcard_info_view(request, passcode):
         entered_at = visit.entered_at
         duration = get_duration(visit)
         time_duration = format_duration(duration)
-        is_visit_long(visit, minutes=60)
+
 
         this_passcard_visits = {
                 'entered_at': entered_at,
