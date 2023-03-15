@@ -1,7 +1,8 @@
 from django.db import models
 import django
 from django.utils import timezone
-
+import time
+from datetime import datetime
 class Passcard(models.Model):
     is_active = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now=True)
@@ -37,8 +38,13 @@ def get_duration(visit):
 
 
 def format_duration(duration):
-    time_duration = str(duration).split('.')
-    return time_duration[0]
+    all_time_duration_seconds = duration.total_seconds()
+    time_duration_hours = int(all_time_duration_seconds // 3600)
+    time_duration_minutes = int((all_time_duration_seconds % 3600) // 60)
+    all_time_duration = f'{time_duration_hours}:{time_duration_minutes}'
+    time_duration = datetime.strptime(all_time_duration, "%H:%M")
+
+    return time_duration.time()
 
 def is_visit_long(visit, minutes=60):
     duration = get_duration(visit)
