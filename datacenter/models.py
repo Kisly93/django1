@@ -1,7 +1,6 @@
 from django.db import models
 import django
 from django.utils import timezone
-import time
 from datetime import datetime
 class Passcard(models.Model):
     is_active = models.BooleanField(default=False)
