@@ -13,15 +13,8 @@ pip install -r requirements.txt
 ### Настройка переменных окружения
 Для корректной работы программы вам необходимо создать файл .env и записать в него следующие переменные:
 ```
-HOST=АДРЕС_БД;
 
-PORT=ПОРТ_БД;
-
-NAME=ИМЯ_БД;
-
-USER=ПОЛЬЗОВАТЕЛЬ_БД;
-
-PASSWORD=ПАРОЛЬ_БД;
+DATABASE=postgres://USER:PASSWORD!@HOST:PORT/NAME
 
 SECRET_KEY=[REPLACE_ME]
 
